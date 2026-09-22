@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymPilot - Fitness Center Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body class="mainbody">
+    <div class="hydra-node"></div>
+    <div class="hydra-node"></div>
+    <div class="hydra-node"></div>
+    <div class="hydra-node"></div>
+    <div class="hydra-node"></div>
+    <div class="hydra-node"></div>
+
+    <!-- Header Section -->
+    <header class="app-header">
+        <div class="header-brand">
+            <img src="./assets/logo.png" alt="GymPilot Logo" class="header-logo">
+            <div>
+                <h1>GYMPILOT</h1>
+                <p class="tagline">Take Control of Your Fitness Center.</p>
+            </div>
+        </div>
+        <button id="logoutBtn" class="btn-logout" onclick="handleLogout()">Logout</button>
+    </header>
+
+    <main class="dashboard-main">
+        
+        <!-- 1. Priority: Alerts Banner -->
+        <section class="alert-section">
+            <h2 id="alert">🚨 Alerts Center</h2>
+            <p id="messagebox">Checking for expiring memberships...</p>
+        </section>
+
+        
+        <!-- 2. Priority: Quick Actions -->
+        <section class="actions-section">
+            <h2>Quick Actions</h2>
+            <div class="action-buttons">
+                <button id="addmember" class="btn-action">➕ Add Member</button>
+                <button id="managesubscription" class="btn-action btn-secondary">👥 Manage Members</button>
+                <!-- Analytics Charts Quick Action Button -->
+               <a href="charts.html" class="btn-quick-action btn-analytics">
+                    📊 Analytics & Reports
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. Priority: Search Section -->
+        <section class="search-card">
+            <h2>🔍 Search Member</h2>
+            <div class="search-box">
+                <input type="text" id="searchcontent" placeholder="Search by Name or Phone Number...">
+            </div>
+            
+            <p id="searchResult"></p>
+            
+            <div class="table-responsive">
+                <table id="searchTable">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Phone Number</th>
+                            <th>Plan Type</th>
+                            <th>Plan Duration</th>
+                            <th>Days Left</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="searchTableBody"></tbody>
+                </table>
+            </div>
+            <p id="searchMessage"></p>
+        </section>
+
+        <!-- 4. Priority: View All Members Link -->
+        <section class="navigation-section">
+            <button id="maintable" class="btn-primary-large">👥 View All Members</button>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="app-footer">
+        <p>© 2026 GymPilot System. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./js/supabaseClient.js" defer></script>
+    <script src="./js/authGuard.js" defer></script>
+    <script src="./js/storage.js" defer></script>
+    <script src="js/utils/date.js"></script>
+    <script src="./js/dashboard.js" defer></script>
+    <script src="./js/globalAlert.js"></script>
+</body>
+</html>

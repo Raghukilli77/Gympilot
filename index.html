@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymPilot - Take Control of Your Fitness Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/landing.css">
+</head>
+<body>
+   
+    <header class="landing-header">
+        <div class="header-brand">
+                <!-- Icon / Emblem Logo -->
+                <img    src="./assets/logo.png" alt="GymPilot Icon" class="landing-icon">
+                <!-- Equipment Wordmark Title Image -->
+                <img src="./assets/title.jpeg" alt="GYMPILOT" class="landing-title-img">
+            </a>
+        </div>
+        <nav class="nav-actions">
+            <a href="login.html" class="btn-secondary">Sign In</a>
+            <a href="signup.html" class="btn-primary">Get Started</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 2. Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <span class="badge">NEXT-GEN GYM MANAGEMENT</span>
+                <h1>TAKE CONTROL OF YOUR FITNESS CENTER</h1>
+                <p>Streamline member registration, monitor real-time subscription expirations, and grow your gym business with high-energy efficiency.</p>
+                <div class="hero-buttons">
+                    <a href="signup.html" class="btn-primary-large">Start Free Today 🚀</a>
+                    <a href="#demo" class="btn-outline">Watch Demo 🎥</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Key Features Section -->
+        <section class="features-section">
+            <h2>POWERFUL FEATURES</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Smart Expiration Alerts</h3>
+                    <p>Track member expiry dates automatically with color-coded dashboard indicators so no subscription renewal is missed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Member Directory</h3>
+                    <p>Search, update, or manage member profiles and phone contact actions in seconds with live filter controls.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Cloud Data</h3>
+                    <p>Powered by Supabase cloud storage to ensure your fitness center records are synced, safe, and accessible anywhere.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Video Showcase / Demo Section -->
+       
+        <!-- 4. Video Showcase / Demo Section -->
+        <section id="demo" class="demo-section">
+            <h2>SEE GYMPILOT IN ACTION</h2>
+            <div class="video-card">
+                <video id="demoVideo" autoplay muted loop  controls poster="./assets/logo.png" preload="auto">
+                    <source src="./assets/demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <!-- 5. Contact Us Section -->
+        <section class="contact-section">
+            <h2>GET IN TOUCH</h2>
+            <p>Have questions or need assistance setting up your fitness center?</p>
+           
+            <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="200d7860-1e67-4602-bdf1-d39f5cc5271c">
+                
+                <!-- Subject line for incoming emails -->
+                <input type="hidden" name="subject" value="New Contact Message - GymPilot">
+                
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- 6. Footer Section -->
+    <footer class="landing-footer">
+        <p>© 2026 GymPilot System. All Rights Reserved.</p>
+        <p>Built for Gym Owners | <a href="#" target="_blank" id="portfolioLink">About Developer</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./js/supabaseClient.js" defer></script>
+    <script src="./js/authGuard.js" defer></script>
+    <script src="./js/landing.js" defer></script>
+    <script src="./js/globalAlert.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GymPilot - Owner Login</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+   <div class="energy-spark"></div>
+    <div class="energy-spark"></div>
+    <div class="energy-spark"></div>
+    <div class="energy-spark"></div>
+    <div class="energy-spark"></div>
+    
+  <div class="auth-card">
+    <div class="auth-header">
+        <img src="./assets/logo.png" alt="GymPilot Logo" class="auth-logo">
+        <h1>GYMPILOT</h1>
+        <p>Sign in to your fitness dashboard</p>
+    </div>
+
+    
+
+    <form class="auth-form" id="loginForm">
+        <div class="form-group">
+          <label for="email">EMAIL ADDRESS</label>
+          <input type="email" id="email" placeholder="owner@gympilot.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="password">PASSWORD</label>
+          <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+      <button type="submit" class="btn-primary" id="loginBtn">SIGN IN</button>
+    </form>
+    <br>
+    <div class="auth-footer">
+      <p>New owner? <a href="signup.html">Create an account</a></p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./js/supabaseClient.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/globalAlert.js"></script>
+</body>
+</html>

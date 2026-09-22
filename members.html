@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>View Members - GymPilot</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/members.css">
+    </head>
+    <body>
+        <!-- Radar Sweep Line -->
+        <div class="radar-sweep"></div>
+
+        <!-- Corner HUD Shields -->
+        <div class="corner-shield shield-tl"></div>
+        <div class="corner-shield shield-tr"></div>
+        <div class="corner-shield shield-bl"></div>
+        <div class="corner-shield shield-br"></div>
+
+        <div id="dashboardcard">
+            <h5 id="dashboard">Dashboard</h5>
+            <!-- Clickable dashboard stat cards -->
+            <div style="display: flex; gap: 15px;">
+                <div class="stat-card" id="totalmembers" onclick="clearFilter()" style="cursor: pointer;">Total number of Members: 0</div>
+                <div class="stat-card" id="expiringsoon" onclick="filterMembers('expiring')" style="cursor: pointer;">🟡 Expiring Soon: 0</div>
+                <div class="stat-card" id="expired" onclick="filterMembers('expired')" style="cursor: pointer;">🔴 Expired: 0</div>
+            </div>
+            <hr>
+        </div>
+
+        <div class="dashboard-container" style="display: flex; gap: 20px; align-items: flex-start; margin: 20px;">
+        
+            <!-- Left Column: Primary Members Table -->
+            <div class="members-section" style="flex: 2; width: 100%;">
+                <table class="styled-table" style="width: 100%;">
+                    <thead id="tablehead">
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>DOJ</th>
+                            <th>DOE</th>
+                            <th>Days Left</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div> 
+
+            <!-- Right Column: Payments Side Panel -->
+            <div class="payments-section" style="flex: 1; background: #181818; padding: 20px; border-radius: 8px; border: 1px solid #333; min-width: 300px;">
+                <h3 id="paymentPanelHeader" style="margin-top: 0; color: #fff;">Payment History</h3>
+                <p id="paymentPanelSub" style="font-size: 13px; color: #888; margin-bottom: 15px;">Click a member row to view their payments.</p>
+
+                <table class="styled-table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Plan</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paymentTableBody">
+                        <tr>
+                            <td colspan="3" style="text-align: center; color: #666;">No member selected</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div> <!-- Closed dashboard-container -->
+
+        <!-- ADD PAYMENT MODAL POPUP -->
+        <div id="addPaymentModal" class="modal-overlay" style="display: none;">
+            <div class="payment-modal-card">
+                <div class="modal-header drag-handle">
+                    <h3>ADD PAYMENT</h3>
+                    <button type="button" class="close-btn" onclick="closeAddPaymentModal()">✕</button>
+                </div>
+
+                <div class="member-info-preview">
+                    <p><strong>Member:</strong> <span id="payModalMemberName">-</span></p>
+                    <p><strong>Current Expiry:</strong> <span id="payModalCurrentExpiry">-</span></p>
+                </div>
+
+                <form id="addPaymentForm">
+                    <input type="hidden" id="payModalMemberId">
+                    
+                    <div class="form-group">
+                        <label for="payModalAmount">Amount Received (₹)</label>
+                        <input type="number" id="payModalAmount" placeholder="e.g. 1000" min="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Payment Method</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="payMethod" value="Cash" checked> Cash</label>
+                            <label><input type="radio" name="payMethod" value="UPI"> UPI</label>
+                            <label><input type="radio" name="payMethod" value="Card"> Card</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="payModalExtendCheckbox" onchange="toggleExtensionFields(this.checked)" checked>
+                            Extend Membership Duration
+                        </label>
+                    </div>
+
+                    <div id="extensionFieldsContainer">
+                        <div class="form-group">
+                            <label for="payModalDuration">Add Duration (Months)</label>
+                            <input type="number" id="payModalDuration" value="1" min="1" oninput="recalculateNewExpiry()">
+                        </div>
+                        <p class="new-expiry-preview">New Expiry Date: <strong id="payModalNewExpiry">-</strong></p>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary" onclick="closeAddPaymentModal()">Cancel</button>
+                        <button type="submit" id="savePayBtn" class="btn-primary">Save Pay</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="./js/supabaseClient.js"></script>
+        <script src="./js/storage.js"></script>
+        <script src="js/utils/date.js"></script>
+        <script src="js/whatsapp-reminder.js"></script>
+        <script src="./js/payments.js"></script> 
+        <script src="./js/members.js"></script>
+        <script src="./js/globalAlert.js"></script>
+    </body>
+</html>

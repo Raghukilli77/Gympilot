@@ -1,0 +1,359 @@
+/* ==========================================
+   GYMPILOT - DASHBOARD MAIN STYLES
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green-primary: #22c55e;
+  --green-hover: #16a34a;
+  --bg-dark: #070d09;
+  --card-bg: #111f15;
+  --card-border: #1e3a27;
+  --text-main: #ffffff;
+  --text-muted: #8fa896;
+  --font-header: 'Orbitron', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+  --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(34, 197, 94, 0.15);
+  --shadow-glow: 0 0 15px rgba(34, 197, 94, 0.4);
+}
+
+/* Base Body Setup & Hydra Mesh Background */
+body, body.mainbody {
+  min-height: 100vh;
+  background-color: #070d09;
+  background-image: 
+    radial-gradient(circle at center, rgba(17, 38, 25, 0.6) 0%, #070d09 85%),
+    repeating-linear-gradient(60deg, rgba(34, 197, 94, 0.05) 0, rgba(34, 197, 94, 0.05) 1px, transparent 0, transparent 40px),
+    repeating-linear-gradient(120deg, rgba(34, 197, 94, 0.05) 0, rgba(34, 197, 94, 0.05) 1px, transparent 0, transparent 40px);
+  background-size: cover, 80px 140px, 80px 140px;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  padding: 1.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 1. Header Area */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.25rem 2rem;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 2rem;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.header-logo {
+  width: 55px;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(56, 176, 98, 0.4));
+  mix-blend-mode: lighten;
+}
+
+.header-brand h1 {
+  font-family: var(--font-header);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: 2px;
+}
+
+.tagline {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.btn-logout {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-family: var(--font-header);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-logout:hover {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+}
+
+/* 2. Main Layout Container */
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* 3. Alerts Banner */
+.alert-section {
+  background: rgba(17, 31, 21, 0.9);
+  border: 1.5px solid #f59e0b;
+  border-radius: 14px;
+  padding: 1.25rem 1.75rem;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+}
+
+.alert-section h2 {
+  font-family: var(--font-header);
+  font-size: 1.1rem;
+  color: #fbbf24;
+  margin-bottom: 0.4rem;
+}
+
+#messagebox {
+  color: #fef3c7;
+  font-size: 0.95rem;
+}
+
+/* 4. Quick Actions Card & Interactive Equal-Width Grid */
+.actions-section {
+  background: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.actions-section h2 {
+  font-family: var(--font-header);
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.action-buttons,
+.quick-actions-container {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Equal Height & Width Interactive Buttons */
+.btn-action,
+.btn-quick-action {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.85rem 1rem;
+  background: rgba(11, 20, 14, 0.8);
+  color: var(--text-main);
+  font-family: var(--font-header);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border: 1.5px solid var(--card-border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
+}
+
+/* Primary Highlight (Add Member) */
+.btn-action-primary {
+  background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+  border: none;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.35);
+}
+
+/* Interactive Glow States */
+.btn-action:hover,
+.btn-quick-action:hover {
+  background: #14261a;
+  border-color: var(--green-primary);
+  color: #4ade80;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.35);
+}
+
+.btn-action-primary:hover {
+  background: linear-gradient(135deg, #4ade80 0%, #16a34a 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.5);
+}
+
+/* Analytics Variant Styling */
+.btn-analytics {
+  background: rgba(34, 197, 94, 0.08);
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #8fa896;
+}
+
+.btn-analytics:hover {
+  background: rgba(34, 197, 94, 0.2);
+  color: #ffffff;
+  border-color: var(--green-primary);
+}
+
+/* 5. Search Card */
+.search-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.search-card h2 {
+  font-family: var(--font-header);
+  font-size: 1.1rem;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background-color: #0b140e;
+  border: 1.5px solid var(--card-border);
+  border-radius: 10px;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.25s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.search-box input:focus {
+  border-color: var(--green-primary);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), var(--shadow-glow);
+}
+
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+#searchTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  border: none !important;
+}
+
+#searchTable th {
+  font-family: var(--font-header);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border: none !important;
+}
+
+#searchTable td {
+  padding: 0.85rem 1rem;
+  background-color: #0b140e;
+  font-size: 0.9rem;
+  border: none !important;
+}
+
+#searchTable tr td:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+#searchTable tr td:last-child { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+
+/* 6. Navigation Link Button */
+.navigation-section {
+  text-align: center;
+}
+
+.btn-primary-large {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+  color: #ffffff;
+  font-family: var(--font-header);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-primary-large:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.5);
+}
+
+/* 7. Footer */
+.app-footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Hydra Hex Nodes (Pulsing Grid Nodes) */
+.hydra-node {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  background-color: #22c55e;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  box-shadow: 0 0 15px #22c55e, 0 0 30px #4ade80;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  animation: hydraPulse 5s infinite ease-in-out;
+}
+
+.hydra-node:nth-child(1) { top: 12%; left: 8%;  animation-duration: 4s; animation-delay: 0s; }
+.hydra-node:nth-child(2) { top: 25%; left: 85%; animation-duration: 5.5s; animation-delay: 1.5s; transform: scale(1.3); }
+.hydra-node:nth-child(3) { top: 65%; left: 12%; animation-duration: 4.5s; animation-delay: 0.8s; transform: scale(1.1); }
+.hydra-node:nth-child(4) { top: 80%; left: 88%; animation-duration: 6s; animation-delay: 2.2s; }
+.hydra-node:nth-child(5) { top: 45%; left: 92%; animation-duration: 3.8s; animation-delay: 3.1s; transform: scale(1.4); }
+.hydra-node:nth-child(6) { top: 85%; left: 6%;  animation-duration: 5s; animation-delay: 1s; }
+
+@keyframes hydraPulse {
+  0% { opacity: 0; transform: scale(0.6); }
+  50% { opacity: 0.85; transform: scale(1.2); filter: drop-shadow(0 0 12px #4ade80); }
+  100% { opacity: 0; transform: scale(0.6); }
+}
+
+.auth-card {
+  position: relative;
+  z-index: 10;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .action-buttons,
+  .quick-actions-container {
+    flex-direction: column;
+  }
+}

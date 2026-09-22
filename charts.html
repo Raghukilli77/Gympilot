@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Analytics & Charts - GymPilot</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/members.css">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- HUD Scan Animations -->
+    <div class="radar-sweep"></div>
+    <div class="corner-shield shield-tl"></div>
+    <div class="corner-shield shield-tr"></div>
+    <div class="corner-shield shield-bl"></div>
+    <div class="corner-shield shield-br"></div>
+
+    <div id="dashboardcard" style="justify-content: space-between;">
+        <h5 id="dashboard">Gym Analytics & Reports</h5>
+        <a href="dashboard.html" class="btn-secondary" style="text-decoration: none; font-size: 0.85rem; padding: 8px 16px;">
+            ← Back to Dashboard
+        </a>
+    </div>
+
+    <!-- Charts Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
+        
+        <!-- Monthly Revenue Chart -->
+        <div class="members-section" style="max-height: none;">
+            <h2>Monthly Payment Revenue (₹)</h2>
+            <div style="position: relative; height: 300px; width: 100%;">
+                <canvas id="revenueChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Membership Plan Distribution Chart -->
+        <div class="payments-section" style="max-height: none;">
+            <h3>Plan Types Distribution</h3>
+            <div style="position: relative; height: 300px; width: 100%;">
+                <canvas id="planChart"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./js/supabaseClient.js"></script>
+    <script src="./js/authGuard.js" defer></script>
+    <script src="./js/charts.js"></script>
+</body>
+</html>
